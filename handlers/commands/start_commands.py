@@ -4,17 +4,18 @@ from aiogram import types
 from conductor import bot, dp
 
 from datetime import datetime
-from database_files.Telegram_DataUsers import select_from_db, insert_into_db
+from database_files.Telegram_DataUsers import TelegramDB
 
+telegramus = TelegramDB(database_file=r'database_files\my_tested_database.db')
 
 @dp.message_handler(commands=['start', 'help'])
 async def start(message: types.message):
     if message.text == '/start':
-        select_from_sql = select_from_db(message.from_user.id)
+        select_from_sql = telegramus.select_from_db(message.from_user.id)
         if not select_from_sql:
             now = str(datetime.today().strftime('%d-%m-%Y'))
             print('в бд не найден, делаю инсерт')
-            insert_into_db(message.from_user.id,
+            telegramus.insert_into_db(message.from_user.id,
                            message.from_user.first_name,
                            message.from_user.username,
                            message.from_user.last_name,

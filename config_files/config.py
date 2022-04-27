@@ -1,3 +1,3 @@
-BOT_TOKEN = 'BOT_TOKEN'
+BOT_TOKEN = '1301016856:AAF_ZNEtAgJeNemKvtHJmXwOfHOAzPul0to'
 
-my_own_id = 1111111111  # if i need it
+my_own_id = 384341050  # if i need it
