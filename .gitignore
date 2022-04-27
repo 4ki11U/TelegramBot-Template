@@ -140,3 +140,4 @@ dmypy.json
 cython_debug/
 
 /database_files/my_tested_database.db
+.idea
